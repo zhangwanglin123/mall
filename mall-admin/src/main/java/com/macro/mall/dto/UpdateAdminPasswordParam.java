@@ -1,9 +1,10 @@
 package com.macro.mall.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.NotEmpty;
+
+import jakarta.validation.constraints.NotEmpty;
 
 /**
  * 修改用户名密码参数
@@ -12,10 +13,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Getter
 @Setter
 public class UpdateAdminPasswordParam {
-    @ApiModelProperty(value = "用户名", required = true)
+    @NotEmpty
+    @Schema(title =  "用户名", requiredMode = Schema.RequiredMode.REQUIRED)
     private String username;
-    @ApiModelProperty(value = "旧密码", required = true)
+    @NotEmpty
+    @Schema(title =  "旧密码", requiredMode = Schema.RequiredMode.REQUIRED)
     private String oldPassword;
-    @ApiModelProperty(value = "新密码", required = true)
+    @NotEmpty
+    @Schema(title =  "新密码", requiredMode = Schema.RequiredMode.REQUIRED)
     private String newPassword;
 }
